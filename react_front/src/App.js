@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import axios from 'axios';
+import UserForm from './components/UserForm';
+import UserList from './components/UserList';
 import './App.css';
 
 function App() {
+  const [users, setUsers] = useState([]);
+
+  const fetchUsers = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/get_users');
+      setUsers(response.data);
+    } catch (error) {
+      console.error('Error al obtener los usuarios', error);
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Registro de Usuario</h1>
+      <UserForm />
+      <hr />
+      <UserList users={users} />
+      <button className="fetch-button" onClick={fetchUsers}>Mostrar Usuarios</button>
     </div>
   );
 }
