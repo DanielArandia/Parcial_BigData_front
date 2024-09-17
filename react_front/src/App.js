@@ -9,7 +9,7 @@ function App() {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/get_users');
+      const response = await axios.get('http://54.175.55.87:5000/api/users');
       setUsers(response.data);
     } catch (error) {
       console.error('Error al obtener los usuarios', error);

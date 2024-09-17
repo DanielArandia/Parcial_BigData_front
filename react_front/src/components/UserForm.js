@@ -10,7 +10,7 @@ function UserForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/add_user', {
+      const response = await axios.post('http://54.175.55.87:5000/api/data', {
         first_name: firstName,
         last_name: lastName,
         birth_date: birthDate,
