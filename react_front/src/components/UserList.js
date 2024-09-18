@@ -7,7 +7,7 @@ function UserList({ users }) {
       <ul>
         {users.map((user, index) => (
           <li key={index}>
-            {user.first_name} {user.last_name} - Fecha de nacimiento: {user.birth_date}
+            {user.nombre} {user.apellido} - Fecha de nacimiento: {user.fecha_nacimiento}
           </li>
         ))}
       </ul>

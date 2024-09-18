@@ -10,10 +10,10 @@ function UserForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://54.175.55.87:5000/api/data', {
-        first_name: firstName,
-        last_name: lastName,
-        birth_date: birthDate,
+      const response = await axios.post('http://3.89.96.211:5000/api/data', {
+        nombre: firstName,
+        apellido: lastName,
+        fecha_nacimiento: birthDate,
         password: password
       });
       alert(response.data.message);
@@ -29,7 +29,7 @@ function UserForm() {
   return (
     <form className="user-form" onSubmit={handleSubmit}>
       <div className="form-group">
-        <label>Nombres:</label>
+        <label>Nombre:</label>
         <input
           type="text"
           value={firstName}
@@ -38,7 +38,7 @@ function UserForm() {
         />
       </div>
       <div className="form-group">
-        <label>Apellidos:</label>
+        <label>Apellido:</label>
         <input
           type="text"
           value={lastName}
