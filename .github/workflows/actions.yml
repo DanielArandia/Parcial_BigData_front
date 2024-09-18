@@ -41,5 +41,14 @@ jobs:
               git pull origin main &&
 
               # Instalar dependencias necesarias
-              pip install -r requirements.txt
+              pip install -r requirements.txt &&
+
+              # Navegar al directorio react_front
+              cd ../react_front/ &&
+
+              # Instalar dependencias de npm
+              sudo npm install &&
+
+              # Iniciar la aplicación de React
+              sudo npm start
           '
